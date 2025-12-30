@@ -1,7 +1,7 @@
 # Prompt: Extend Adoptions with constraints
 
 Context:
-- Application code is in `spring-petclinic/`.
+- Application code is in the repository root.
 - Follow repository instructions and specialized instructions under `.github/instructions/`.
 
 Task:

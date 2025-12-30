@@ -15,7 +15,7 @@ This is intentionally small: it’s a good way to practice **Copilot code comple
 
 ## Where you’ll work
 
-All code changes happen in [spring-petclinic/](../../spring-petclinic/).
+All code changes happen in your local clone of Spring PetClinic.
 
 You will create a new controller:
 
@@ -24,7 +24,7 @@ You will create a new controller:
 
 ## Create the endpoint (Copilot-assisted)
 
-1. In IntelliJ, open the `spring-petclinic` project.
+1. In IntelliJ, open your `spring-petclinic` project.
 2. Create a new Java file:
    - `src/main/java/org/springframework/samples/petclinic/system/ClinicInfoController.java`
 3. Use Copilot **code completion** to implement a `@RestController` with:

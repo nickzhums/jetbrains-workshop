@@ -2,7 +2,9 @@
 
 Built to be your AI pair programmer, [GitHub Copilot](https://github.com/features/copilot) helps you generate code and focus on what's important. In this one-hour workshop you’ll use **IntelliJ IDEA** + **Copilot for JetBrains** to understand and extend a real Spring Boot application.
 
-This workshop uses the **Spring PetClinic** sample application (included in this repo under [spring-petclinic/](../../spring-petclinic/)).
+This workshop uses the **Spring PetClinic** sample application.
+
+You will work in a local clone of: https://github.com/spring-projects/spring-petclinic
 
 ## Prerequisites
 

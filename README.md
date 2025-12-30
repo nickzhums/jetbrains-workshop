@@ -1,14 +1,13 @@
 # GitHub Copilot for JetBrains Workshop (Spring PetClinic)
 
-This repository is a hands-on workshop for learning GitHub Copilot **in IntelliJ IDEA** (Copilot for JetBrains), using the **Spring PetClinic** codebase.
+This repository is a hands-on workshop for learning GitHub Copilot **in IntelliJ IDEA** (Copilot for JetBrains), using the **Spring PetClinic** application.
 
 The workshop materials live in [content/1-hour/README.md](content/1-hour/README.md).
 
 ## Repo layout
 
-- [spring-petclinic/](spring-petclinic/) — upstream Spring PetClinic source (used as the starting point for all exercises)
 - [content/](content/) — workshop instructions and reusable prompts
-- [.github/copilot-instructions.md](.github/copilot-instructions.md) — repository-wide Copilot instructions (students will extend this during the workshop)
+- [.github/copilot-instructions.md](.github/copilot-instructions.md) — example Copilot instructions you can copy into your PetClinic clone
 
 ## Prerequisites
 
@@ -19,12 +18,12 @@ The workshop materials live in [content/1-hour/README.md](content/1-hour/README.
 
 ## Quick start (run the app)
 
-From the repo root:
+Clone Spring PetClinic and run it:
 
-- macOS / Linux:
-	- `cd spring-petclinic && ./mvnw spring-boot:run`
-- Windows (PowerShell):
-	- `cd spring-petclinic; .\mvnw.cmd spring-boot:run`
+- `git clone https://github.com/spring-projects/spring-petclinic.git`
+- `cd spring-petclinic`
+- macOS/Linux (and Git Bash on Windows): `./mvnw spring-boot:run`
+- Windows (PowerShell): `.\mvnw.cmd spring-boot:run`
 
 Then open http://localhost:8080.
 

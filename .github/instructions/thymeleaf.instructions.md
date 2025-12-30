@@ -1,5 +1,5 @@
 ---
-applyTo: "spring-petclinic/src/main/resources/templates/**/*.html"
+applyTo: "src/main/resources/templates/**/*.html"
 ---
 
 # Thymeleaf conventions

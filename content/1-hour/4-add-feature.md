@@ -62,11 +62,11 @@ In this part, use **Copilot Agent Mode** (if your Copilot for JetBrains UI expos
 
 ## Runbook
 
-- Start the app:
-  - Windows PowerShell: `cd spring-petclinic; .\mvnw.cmd spring-boot:run`
-  - macOS/Linux: `cd spring-petclinic && ./mvnw spring-boot:run`
-- Run tests:
-  - `cd spring-petclinic && ./mvnw test`
+- Start the app (from the root of your PetClinic clone):
+  - macOS/Linux (and Git Bash on Windows): `./mvnw spring-boot:run`
+  - Windows PowerShell: `.\mvnw.cmd spring-boot:run`
+- Run tests (from the root of your PetClinic clone):
+  - `./mvnw test`
 
 ## Agent prompt
 

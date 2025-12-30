@@ -19,7 +19,7 @@ Copilot instructions live in `.github/copilot-instructions.md`. They provide **p
 
 ## Step 1: Create/update the repo-wide instructions
 
-Open `.github/copilot-instructions.md` and review the defaults.
+In your local clone of Spring PetClinic, create (or update) `.github/copilot-instructions.md`.
 
 Then, in Copilot Chat, ask it to improve the file for this repo. Example prompt:
 
@@ -33,13 +33,15 @@ Review the changes and keep what matches your team’s style.
 
 ## Step 2: Add specialized instructions (custom)
 
-This repo also includes specialized instructions under `.github/instructions/`.
+Optionally, add specialized instructions under `.github/instructions/`.
 
 These are intended to be more specific than the repo-wide file. Depending on your Copilot client, they can be applied by pattern or added to chat context.
 
-- `.github/instructions/spring-java.instructions.md`
-- `.github/instructions/tests-java.instructions.md`
-- `.github/instructions/thymeleaf.instructions.md`
+- `.github/instructions/spring-java.instructions.md` (Java + Spring conventions)
+- `.github/instructions/tests-java.instructions.md` (test conventions)
+- `.github/instructions/thymeleaf.instructions.md` (template conventions)
+
+If you want a starting point, copy the examples from this workshop repository’s `.github/instructions/` folder.
 
 Try asking Copilot to implement a tiny helper (as a practice task) while following these rules.
 

@@ -1,9 +1,10 @@
 # Workshop setup
 
-To complete this workshop you will run Spring PetClinic locally, open it in IntelliJ IDEA, and enable GitHub Copilot.
+To complete this workshop you will clone Spring PetClinic, run it locally, open it in IntelliJ IDEA, and enable GitHub Copilot.
 
 > [!IMPORTANT]
-> This repo contains the PetClinic application under [spring-petclinic/](../../spring-petclinic/). All code changes in this workshop happen in that folder.
+> The PetClinic source code is **not** included in this workshop repository.
+> You will work in a local clone of: https://github.com/spring-projects/spring-petclinic
 
 ## Required resources
 
@@ -15,29 +16,42 @@ To complete this workshop you will run Spring PetClinic locally, open it in Inte
 ### IDE
 
 - IntelliJ IDEA (Community or Ultimate)
-- GitHub Copilot plugin installed and signed in (You can directly download it within JetBrains marketplace)
+- GitHub Copilot plugin installed and signed in (You can  download the plugin by going to Settings->Plugins->Marketplace)
 
 ### Local services
 
 - Git (CLI)
 - Java 17+
 
+## Clone Spring PetClinic
+
+Clone the upstream PetClinic repository:
+
+```sh
+git clone https://github.com/spring-projects/spring-petclinic.git
+cd spring-petclinic
+```
+
+> [!TIP]
+> If you want to push your changes to your own GitHub repo during the workshop, fork the PetClinic repo first and clone your fork instead.
+
 ## Run the application
 
-From the repo root, start PetClinic:
+From the `spring-petclinic` folder, start PetClinic:
 
 - macOS / Linux:
 
   ```sh
-  cd spring-petclinic
   ./mvnw spring-boot:run
   ```
 
 - Windows (PowerShell):
 
   ```powershell
-  cd spring-petclinic
   .\mvnw.cmd spring-boot:run
+
+> [!NOTE]
+> If you are using Git Bash on Windows, prefer `./mvnw spring-boot:run` (not `mvnw.cmd`).
   ```
 
 Open the app in your browser: http://localhost:8080
@@ -46,7 +60,7 @@ Open the app in your browser: http://localhost:8080
 
 1. Open IntelliJ IDEA.
 2. Select **File → Open…**
-3. Choose the folder [spring-petclinic/](../../spring-petclinic/) and open it as a project.
+3. Choose the `spring-petclinic` folder you cloned and open it as a project.
 4. If prompted, trust the project and allow the IDE to import Maven/Gradle.
 
 ## Verify Copilot is active

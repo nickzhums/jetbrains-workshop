@@ -1,6 +1,6 @@
 # Prompt: Add an Adoptions feature (PetClinic)
 
-You are working in a repository where the application code lives under `spring-petclinic/`.
+You are working in a local clone of Spring PetClinic (repository root).
 
 Goal: add a minimal Pet Adoption feature to Spring PetClinic using Spring MVC + Thymeleaf + Spring Data JPA.
 

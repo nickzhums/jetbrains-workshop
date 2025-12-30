@@ -4,8 +4,8 @@ You are helping on a workshop repository that uses the **Spring PetClinic** samp
 
 ## Project layout
 
-- The application code lives in `spring-petclinic/`.
-- Workshop docs live in `content/`.
+- The application code lives in your local clone of Spring PetClinic.
+- Workshop docs and prompt examples live in this workshop repository under `content/`.
 
 ## Tech stack
 
@@ -22,6 +22,6 @@ You are helping on a workshop repository that uses the **Spring PetClinic** samp
 
 ## Commands
 
-- Run app (macOS/Linux): `cd spring-petclinic && ./mvnw spring-boot:run`
-- Run app (Windows PowerShell): `cd spring-petclinic; .\mvnw.cmd spring-boot:run`
-- Run tests: `cd spring-petclinic && ./mvnw test`
+- Run app (macOS/Linux and Git Bash): `./mvnw spring-boot:run`
+- Run app (Windows PowerShell): `.\mvnw.cmd spring-boot:run`
+- Run tests: `./mvnw test`
