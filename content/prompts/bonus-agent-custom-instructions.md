@@ -1,21 +1,27 @@
-# Prompt: Extend Adoptions with constraints
+# Prompt: Extend “Adopt Me” with custom instructions
 
 Context:
 - Application code is in the repository root.
 - Follow repository instructions and specialized instructions under `.github/instructions/`.
 
-Task:
-1) Add a minimal “Mark as adopted” capability:
-- On the listing details page, add a small form/button to mark listing status as ADOPTED.
-- Use POST-redirect-GET.
-- Once adopted, hide the application form and show a message that the listing is no longer available.
+Precondition:
+- The simplified “Adopt Me” feature already exists (nav tab + `GET /adoption` page with an in-memory list of 3 pets and an adopt button that disables after adopting).
 
-2) Add a small test:
-- Add either a controller test verifying the transition, or a repository/service test verifying status changes.
+Task:
+1) Add a minimal filter on the Adoption page:
+- Support an optional query param: `species` with values `cat`, `dog`, or `snake`.
+- When provided, only show matching pets in the table.
+- When not provided, show all pets.
+- Keep this server-rendered (no JS filtering).
+
+2) Add a minimal “Undo adopt” capability:
+- For adopted pets, show an "Undo" button (or "Unadopt") in the Adopt Me column.
+- Implement as a POST endpoint (POST-redirect-GET) and redirect back to `/adoption`.
+- Do not introduce persistence; keep using in-memory state.
 
 Constraints:
 - Keep it consistent with PetClinic patterns.
-- Do not add new dependencies unless required.
+- Do not add new dependencies.
 - Keep UI changes minimal and accessible.
 
 Process:

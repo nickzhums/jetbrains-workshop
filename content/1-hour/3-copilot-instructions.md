@@ -1,67 +1,106 @@
-# Copilot instructions (repo-wide + custom)
+# Providing custom instructions
+
+There are always key pieces of information anyone generating code for your codebase needs to know: project structure, conventions, and “how we do things here”. Since context is so important for an AI coding assistant, we can provide some of that information via **Copilot instructions**.
 
 ## Scenario
 
-As you move from small changes to multi-file features, Copilot works best when it understands your project’s conventions: testing style, architecture boundaries, and where code should go.
+Before we begin larger updates to PetClinic with the help of Copilot, we want to ensure Copilot has a good understanding of how we want code to be written.
 
 In this exercise you will:
 
-- add a repo-wide Copilot instructions file
-- add a more specialized instructions file for Java/Spring
-- practice “basic file addition” via Copilot
+- run a “baseline” prompt and observe the result
+- add workspace-level Copilot instructions in `.github/copilot-instructions.md`
+- run the same prompt again and observe how Copilot changes
+- keep (and extend) specialized instructions under `.github/instructions/`
 
-## What are Copilot instructions?
+## Overview of Copilot instructions
 
-Copilot instructions live in `.github/copilot-instructions.md`. They provide **project-wide** context and conventions that should apply for all developers.
+Copilot instructions live in a markdown file placed in `.github/copilot-instructions.md`. It becomes part of your project and is used to guide Copilot Chat.
 
 > [!IMPORTANT]
-> Keep instructions concise. Very large instruction files can drown out relevant code context.
+> Keep this file short and focused on project-wide guidance. If it grows too large, it can crowd out the code context Copilot needs.
 
-## Step 1: Create/update the repo-wide instructions
+## Step 1: Ask Copilot to generate a baseline function
 
-In your local clone of Spring PetClinic, create (or update) `.github/copilot-instructions.md`.
+1. In IntelliJ, close extra editor tabs to reduce accidental context.
+2. Open Copilot Chat and start a new chat.
+3. Send this prompt:
 
-Then, in Copilot Chat, ask it to improve the file for this repo. Example prompt:
+	```
+	Create a Java function to validate pet age between 0 and 25.
+	Throw an error if it is outside this range.
+	```
 
-```
-Update .github/copilot-instructions.md for this repo.
-Include: Java 17+, Spring Boot MVC + Thymeleaf, Spring Data JPA.
-Prefer Maven wrapper commands, add testing expectations (JUnit), and keep it concise.
-```
+4. Observe the result.
 
-Review the changes and keep what matches your team’s style.
+> [!NOTE]
+> In many cases, you’ll notice the generated code only checks that age is **>= 0** and forgets the upper bound. That’s expected: this is exactly the kind of drift instructions help correct.
 
-## Step 2: Add specialized instructions (custom)
+## Step 2: Add `.github/copilot-instructions.md`
 
-Optionally, add specialized instructions under `.github/instructions/`.
+In your local clone of Spring PetClinic, create `.github/copilot-instructions.md`.
 
-These are intended to be more specific than the repo-wide file. Depending on your Copilot client, they can be applied by pattern or added to chat context.
+Set its content to:
 
-- `.github/instructions/spring-java.instructions.md` (Java + Spring conventions)
-- `.github/instructions/tests-java.instructions.md` (test conventions)
-- `.github/instructions/thymeleaf.instructions.md` (template conventions)
+```markdown
+# Copilot instructions
 
-If you want a starting point, copy the examples from this workshop repository’s `.github/instructions/` folder.
-
-Try asking Copilot to implement a tiny helper (as a practice task) while following these rules.
-
-## Step 3: Practice “basic file addition” with Copilot
-
-Ask Copilot to create a new file (don’t write it yourself). Example:
-
-```
-Create a new package-info.java for org.springframework.samples.petclinic explaining, in 5-8 lines, the overall package structure. Keep it accurate and minimal.
+When adding a function that validates a pet's age, make sure it is between 0 and 25.
+Add a short comment at the beginning of the function explaining what it validates.
 ```
 
-Then review the output and ensure:
+You can add this file either:
 
-- the file is placed correctly
-- the doc matches the repo
-- it doesn’t invent packages/classes
+- Manually (create the file under `.github/`), or
+- Via IntelliJ settings:
+  - **Settings → Tools → GitHub Copilot → Customizations**
+  - Click on **workspace** under **Copilot instructions**
+
+## Step 3: Try the prompt again (and check references)
+
+1. Start a new Copilot Chat session.
+2. Send the same prompt again:
+
+	```
+	Create a Java function to validate pet age.
+	Ensure pet age is between 0 and 25.
+	Throw an error if it is outside this range.
+	```
+
+3. In the Copilot UI, open the **references** area.
+4. Confirm that Copilot pulled in **1 reference** from the instructions file.
+5. You will observe that the generated function now includes both bounds and a comment.
+
+> [!TIP]
+> If you don’t see the instructions referenced, make sure you created the file in the PetClinic clone you have open in IntelliJ (not in this workshop-docs repo).
+
+## Step 4: Specialized instructions (keep these)
+
+In addition to `.github/copilot-instructions.md`, you can add specialized instruction files under `.github/instructions/`. These are useful when you want deeper guidance for a subset of files (Java, tests, templates, etc.).
+
+Keep the specialized instructions sections from this workshop and add a Java-focused example. For example, create `.github/instructions/java-style.instructions.md` with:
+
+```markdown
+---
+applyTo: "**/*.java"
+---
+
+# Java style
+
+- Write comments at the beginning of each class and functions explaining their purpose.
+- Prefer Spring MVC + Thymeleaf patterns in PetClinic (use `@Controller` for pages).
+- Only use `@RestController` for JSON endpoints (like `/api/...`).
+- Prefer constructor injection for Spring components.
+- When accepting user input, prefer Bean Validation (e.g., `@Valid` + constraint annotations).
+```
+
+## Inspiration: awesome-copilot
+
+If you want examples of good instruction files (and reusable prompts), the community-curated https://github.com/github/awesome-copilot repo is a great place to pull patterns from.
 
 ## Summary and next steps
 
-You’ve improved Copilot’s default context so it can work more reliably across multiple files. Next you’ll build a new adoption feature using **Agent Mode**.
+You’ve seen how instructions change Copilot’s output by providing stable, project-specific context. Next you’ll build a new adoption feature using **Agent Mode**.
 
-| ← Explore the project | Next: Add adoption feature (Agent Mode) → |
-|:----------------------|------------------------------------------:|
+| [← Explore the project](./2-explore-project.md) | [Next: Add adoption feature (Agent Mode) →](./4-add-feature.md) |
+|:-----------------------------------------------|----------------------------------------------------------------:|

@@ -16,7 +16,7 @@ To complete this workshop you will clone Spring PetClinic, run it locally, open 
 ### IDE
 
 - IntelliJ IDEA (Community or Ultimate)
-- GitHub Copilot plugin installed and signed in (You can  download the plugin by going to Settings->Plugins->Marketplace)
+- GitHub Copilot plugin installed and signed in (You can  download the plugin by going to Settings-> Plugins-> Marketplace)
 
 ### Local services
 

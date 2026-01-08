@@ -12,7 +12,7 @@ Practice a more realistic agent workflow:
 1. Open [../../.github/copilot-instructions.md](../../.github/copilot-instructions.md)
 2. Add a short “Do / Don’t” section, for example:
    - Do: follow PetClinic MVC patterns
-   - Do: use POST-redirect-GET for form submissions
+   - Do: use POST-redirect-GET for state-changing actions (e.g., Adopt)
    - Don’t: introduce a separate frontend framework
    - Don’t: add new build tooling
 
@@ -34,13 +34,13 @@ If your Copilot client supports Agent Mode, use it. Otherwise, do the same flow 
 
 If you finish early, try one of these (pick one):
 
-- Add simple search to adoption listings (by city)
-- Add validation error display on the adoption listing form (if not already present)
-- Add a “mark as adopted” action for listings
+- Add a simple filter on the Adoption page (e.g., query param `species=cat|dog|snake`)
+- Add a one-click “Undo adopt” action (POST-redirect-GET) to re-enable the button
+- Show a small success message after adopting (flash attribute)
 
 ## Wrap-up
 
 The key idea: Agent Mode works best when you pair it with clear **constraints** (instructions) and a tight **feedback loop** (build/tests).
 
-| [← Add adoption feature](./4-add-feature.md) | [Next: Back to workshop start →](./README.md) |
+| [← Add Adopt Me page](./4-add-feature.md) | [Next: Back to workshop start →](./README.md) |
 |:--------------------------------------------|----------------------------------------------:|

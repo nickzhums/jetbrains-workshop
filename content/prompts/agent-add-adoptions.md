@@ -1,52 +1,51 @@
-# Prompt: Add an Adoptions feature (PetClinic)
+# Prompt: Add an “Adopt Me” tab + Adoption page (PetClinic)
 
 You are working in a local clone of Spring PetClinic (repository root).
 
-Goal: add a minimal Pet Adoption feature to Spring PetClinic using Spring MVC + Thymeleaf + Spring Data JPA.
+Goal: Add a new top-level navigation tab called "Adopt Me" that links to a new server-rendered page called "Adoption".
 
-Constraints:
-- Keep changes small and consistent with PetClinic patterns.
-- Prefer server-rendered pages (Thymeleaf).
-- Use Java 17+.
-- Use constructor injection.
-- Add at least one test.
+Keep this intentionally simple:
+- Use Spring MVC + Thymeleaf (no SPA).
+- Avoid adding databases, JPA entities, repositories, or migrations.
+- Avoid adding tests for this task.
+- Keep changes minimal and consistent with existing PetClinic patterns (templates, layout, navigation).
 
-Feature requirements:
+Acceptance criteria:
 1) Navigation
-- Add a top-level nav link named "Adoptions".
+- Add a nav entry named "Adopt Me".
+- Place it next to the existing "Find Owners" tab (right after it).
 
-2) Listings (posting a pet)
-- Add pages to:
-  - list adoption listings
-  - create a new listing
-  - view a listing details page
-- Listing fields:
-  - petName (required)
-  - petType (required; reuse existing PetClinic pet types if feasible)
-  - description (required)
-  - city (required)
-  - contactEmail (required)
-  - status enum: AVAILABLE / ADOPTED (default AVAILABLE)
+2) New page
+- Create a new page titled "Adoption".
+- Route: `GET /adoption` (server-rendered Thymeleaf page).
 
-3) Applications (want to adopt)
-- From the listing details page, allow submitting an adoption application:
-  - applicantName (required)
-  - applicantEmail (required)
-  - applicantPhone (optional)
-  - message (required)
-- After submit, redirect back to listing details and show a success message.
+3) Description paragraph
+- Add a short paragraph at the top calling for pet adoption.
+- Write it in first-person point of view ("I", "we", "our"), e.g. "We’re looking for loving homes...".
 
-Data/persistence:
-- Use JPA entities and Spring Data repositories.
-- Ensure it works with default in-memory H2.
+4) Table of content
+- On the Adoption page, render a table with these columns:
+  - Species (cat, dog, snake)
+  - Gender
+  - Age
+  - Description
+  - Adopt Me (a button)
 
-Deliverables:
-- New entity classes, repositories, controller(s), Thymeleaf templates.
-- Update navigation template.
-- Add a focused test (controller or repository) to cover core behavior.
+5) Adopt button behavior
+- Each row has an "Adopt Me" button.
+- When clicked, it should mark that pet as adopted and redirect back to `/adoption`.
+- If a pet is already adopted, render the button greyed out and not clickable (disabled).
+
+Implementation guidance (keep minimal):
+- Use an in-memory list of 3 pets (one cat, one dog, one snake) stored in the controller/service (no persistence).
+- Use a stable id per pet so the adopt action can target a specific row.
+- Implement adopt as a `POST /adoption/{id}/adopt` endpoint (POST-redirect-GET).
+- Use existing CSS/Bootstrap classes from PetClinic; do not introduce new styling systems.
 
 Workflow:
-- First, inspect the current PetClinic code to find the right patterns for controllers, templates, and navigation.
-- Propose a short plan.
-- Implement incrementally.
-- Run tests and iterate if anything fails.
+1) Find how PetClinic defines the top nav template and add "Adopt Me" next to "Find Owners".
+2) Add a small controller and a Thymeleaf template for the Adoption page.
+3) Run the app and verify the tab, page, table, and disabled button state.
+
+Formatting:
+- After code changes, run the project’s formatter (e.g. `spring-javaformat:apply` if configured).

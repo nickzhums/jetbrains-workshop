@@ -20,6 +20,10 @@ You are helping on a workshop repository that uses the **Spring PetClinic** samp
 - Follow existing patterns in PetClinic (controllers, services, repositories, templates).
 - Add or update tests when adding behavior.
 
+## Formatting
+
+- After making changes, run the project formatter via `format:apply` and ensure no formatting issues remain.
+
 ## Commands
 
 - Run app (macOS/Linux and Git Bash): `./mvnw spring-boot:run`
