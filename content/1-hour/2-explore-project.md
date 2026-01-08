@@ -10,8 +10,11 @@ This exercise focuses on **getting context** and asking high-signal questions.
 
 1. Close extra tabs in IntelliJ to reduce accidental context.
 2. Open Copilot Chat.
+   - If you have a model selector, choose a newer model.
+   - If you’re on a free plan, select **GPT-5 mini** (it’s included with the account).
 3. Start a new chat.
 4. Ask questions like:
+   - If you have a model selector, you can switch to **GPT-5 mini** for this step as well.
 
    - “What are the main packages and what does each one do?”
    - “Where are the controllers that render web pages?”
